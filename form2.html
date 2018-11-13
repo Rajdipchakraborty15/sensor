@@ -1,0 +1,115 @@
+<html>
+<head>
+
+
+<title>MachineSense</title>
+
+
+
+
+<Style type="text/css">
+body{
+  background: #146EB4;
+  background-size: cover;
+ }
+
+.aaa{
+  width: 500px;
+  height: 500px;
+  
+  background-color: #FF9900;
+  margin: 0 auto;
+  margin-top: 40px;
+  padding-top: 10px;
+  padding-left: 50px;
+  -webkit-border-color: 15px;
+  -moz-border-color: 15px;
+  -ms-border-color: 15px;
+  -o-border-color: 15px;
+  border-color: 15px;
+  color:black;
+  font-weight: bolder;
+  -webkit-box-shadow: inset -4px -4px rgba(0,0,0,0.5);
+  box-shadow: inset -4px -4px rgba(0,0,0,0.2);
+  font-size: 18px;
+ }
+ </style>
+
+
+</head>
+
+
+<body>
+
+
+<h3><center> MachineSense</h3>
+
+<body>
+ <div class="aaa">
+ <h2>     MACHINE SENSE ONBROADING</h2><br><br>
+  <form action ="" name ="form2" method="post">
+  
+
+<label for ="mac"<b>ENTER MAC ADDRESS </b></label><br>
+<input type="text"   placeholder="12 digits for mac"  name ="mac" size=20 ><br><br><br><br>
+ <label>SELECT SENSOR:</label>
+        <select id="list" ">
+
+<option>AC</option>
+<option>VACCUM</option>
+<option>PS</option>
+<option>PF</option>
+
+
+</select><br><br>
+ <input type="submit" onClick=" check(this.form)" value="Onbroading" ><br><br>
+
+  </form><!-- close form -->
+ </div><!-- close aa -->
+
+  <script language ="javascript">
+  
+  
+  
+  function check(form){ 
+ var SelectedValue=document.getElementById("list").value; 
+var regexp = /^(([A-Fa-f0-9]{2}[:]){5}[A-Fa-f0-9]{2}[,]?)+$/i;
+ if(form.mac.value=="")
+ {
+ alert("please enter mac address");
+
+ } 
+ 
+ 
+else if(regexp.test(form.mac.value))
+{
+
+
+ var json={
+      "MAC_ID":form.mac.value,
+	  "TYPE":  SelectedValue
+	  }
+var html=JSON.stringify(json);
+
+
+	  
+document.write(html);
+
+localStorage.setItem('text',html);
+
+
+form.preventDefault();
+
+
+}
+else
+{
+alert("mac id is not correct");
+}
+
+
+}
+ </script>
+ 
+</body>
+</html>
